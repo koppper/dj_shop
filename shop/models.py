@@ -8,7 +8,9 @@ class Shop(models.Model):
         null=True,
         verbose_name='Shop Name'
     )
-    goods = models.ManyToManyField('Goods')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Shop'
@@ -32,6 +34,10 @@ class Goods(models.Model):
     )
     category = models.ForeignKey(
         'Category',
+        on_delete=models.DO_NOTHING
+    )
+    shop = models.ForeignKey(
+        Shop,
         on_delete=models.CASCADE
     )
 
@@ -48,6 +54,9 @@ class Category(models.Model):
         null=True,
         verbose_name='Category Name'
     )
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Category'

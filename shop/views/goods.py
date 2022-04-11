@@ -16,12 +16,12 @@ class GoodsViewSet(ModelViewSet):
     serializer_class = GoodsSerializer
     queryset = Goods.objects.all()
 
-    def get_serializer_class(self):
-        serializer_class = GoodsSerializer
-
-        if self.action == 'create':
-            serializer_class = GoodsSerializer
-        elif self.action == 'update':
-            serializer_class = GoodsSerializer
-
-        return serializer_class
+    # def get_serializer_class(self):
+    #     serializer_class = GoodsSerializer
+    #
+    #     if self.action == 'create':
+    #         serializer_class = GoodsCreateSerializer
+    #     elif self.action == 'update':
+    #         serializer_class = GoodsUpdateSerializer
+    #
+    #     return serializer_class

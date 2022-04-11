@@ -11,6 +11,5 @@ class ShopSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'goods'
         )
 

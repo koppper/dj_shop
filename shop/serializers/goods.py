@@ -16,33 +16,37 @@ class GoodsSerializer(serializers.ModelSerializer):
             'price',
             'shop',
             'updated_at',
-            'category'
+            'category',
+            'update_counter'
         )
 
+    def create(self, validated_data):
+        return Goods.objects.create(**validated_data)
 
-class GoodsCreateSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Goods
-        fields = (
-            'name',
-            'price',
-            'shop',
-            'category'
-        )
-
-
-class GoodsUpdateSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(required=False)
-
-    class Meta:
-        model = Goods
-        fields = (
-            'name',
-            'price',
-            'shop',
-            'category'
-        )
+#
+# class GoodsCreateSerializer(serializers.ModelSerializer):
+#
+#     class Meta:
+#         model = Goods
+#         fields = (
+#             'name',
+#             'price',
+#             'shop',
+#             'category'
+#         )
+#
+#
+# class GoodsUpdateSerializer(serializers.ModelSerializer):
+#     category = CategorySerializer(required=False)
+#
+#     class Meta:
+#         model = Goods
+#         fields = (
+#             'name',
+#             'price',
+#             'shop',
+#             'category'
+#         )
 
     # def update(self, instance, validated_data):
     #     if 'category' in validated_data.keys():

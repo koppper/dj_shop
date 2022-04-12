@@ -41,6 +41,14 @@ class Goods(models.Model):
         on_delete=models.CASCADE
     )
 
+    update_counter = models.IntegerField(
+        default=0
+    )
+
+    def save(self, *args, **kwargs):
+        self.update_counter += 1
+        super(Goods, self).save(*args, **kwargs)
+
     class Meta:
         verbose_name = 'Goods'
         verbose_name_plural = 'Goods'

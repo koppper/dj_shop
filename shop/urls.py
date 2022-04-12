@@ -9,5 +9,4 @@ router.register('shops', ShopViewSet)
 router.register('cat', CatViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
 ] + router.urls
